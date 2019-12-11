@@ -40,4 +40,52 @@ const employees = [
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
-console.log( employees );
+console.log(employees);
+
+function bonusCalculator(employeeToCalc) {
+  let newEmployee = {};
+  if (employeeToCalc.reviewRating <= 2) {
+    newEmployee.name = employeeToCalc.name;
+    newEmployee.bonusPercentage = 0;
+    newEmployee.totalCompensation = employeeToCalc.annualSalary;
+    newEmployee.totalBonus = 0;
+  } else if (employeeToCalc.reviewRating === 3) {
+    newEmployee.name = employeeToCalc.name;
+    newEmployee.bonusPercentage = .04;
+    newEmployee.totalCompensation = (employeeToCalc.annualSalary * 1.04);
+    newEmployee.totalBonus = (employeeToCalc.annualSalary * newEmployee.bonusPercentage);
+  } else if (employeeToCalc.reviewRating === 4) {
+    newEmployee.name = employeeToCalc.name;
+    newEmployee.bonusPercentage = .06;
+    newEmployee.totalCompensation = (employeeToCalc.annualSalary * 1.06);
+    newEmployee.totalBonus = (employeeToCalc.annualSalary * newEmployee.bonusPercentage);
+  } else if (employeeToCalc.reviewRating === 5) {
+    newEmployee.name = employeeToCalc.name;
+    newEmployee.bonusPercentage = .10;
+    newEmployee.totalCompensation = (employeeToCalc.annualSalary * 1.10);
+    newEmployee.totalBonus = (employeeToCalc.annualSalary * newEmployee.bonusPercentage);
+  }
+    if (employeeToCalc.employeeNumber.length === 4) {
+      newEmployee.bonusPercentage += .05;
+    }
+    if (employeeToCalc.annualSalary > 65000) {
+      newEmployee.bonusPercentage -= .01;
+    }
+
+    return newEmployee;
+  }
+    // couldn't get this next part to work
+
+  // function tooMuchtooLittle(newEmployee){
+  //     let updatedEmployee = newEmployee
+  // if (newEmployee.bonusPercentage > .13) {
+  //   updatedEmployee.bonusPercentage === .13;
+  // } 
+  // if (newEmployee.bonusPercentage < 0) {
+  //   updatedEmployee.bonusPercentage === 0;
+  // } 
+  // return updatedEmployee
+  // }; 
+  
+  
+  console.log(bonusCalculator((employees[0])));
